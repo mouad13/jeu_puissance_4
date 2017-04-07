@@ -1,0 +1,49 @@
+#cases {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grilles {
+    width: 70%;
+    background-color: blue;
+    order: 2;
+
+}
+
+.button {
+    display: inline-block;
+    width: 10%;
+    height: 3em;
+    order: 1;
+}
+
+.tableau {
+    border: 1px solid black;
+    height: 100px;
+    display: inline-block;
+    width: 14%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.td {
+    border: 1px solid black;
+}
+
+.playerone {
+    border: 1px solid black;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    display: inline-block;
+    width: 14%;
+}
+
+.playertwo {
+    border: 1px solid black;
+    height: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+    display: inline-block;
+    width: 14%;
+}
