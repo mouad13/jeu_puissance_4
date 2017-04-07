@@ -8,7 +8,7 @@ var nblignes = 6;
 var nbcolones = 7;
 var nbbouttons = 7;
 var grilles = document.getElementById("grilles");
-var cellules = document.getElementById("cases")
+var cellules = document.getElementById("cases");
 var joueurUn = 1;
 
     for (var i = 0; i < nblignes; i++) {
