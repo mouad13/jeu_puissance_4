@@ -13,15 +13,14 @@ var cellules = $("#cases");
 var joueur = 1;
 var joueur2 = 2;
 
-// creation des lignes, des colonnes et les boutons du tableux
 
 for (var i = 0; i < nblignes; i++) {
 
     for (var j = 0; j < nbcolones; j++) {
-        grilles.append('<div class="tableau" id="case'+i+'-'+j+'"></div>');  // on ajoute la div dans la grille 
+        grilles.append('<div class="tableau" id="case'+i+'-'+j+'"></div>');
     }
 }
-    // on ajoute des boutons
+    
     
     for (var k = 0; k < nbbouttons; k++) {
     	 cellules.append('<button class="button" id="'+k+'"></button>');
@@ -33,12 +32,12 @@ for (var i = 0; i < nblignes; i++) {
 $("button").click(function() { 
    var col = $(this).attr("id");	      
    var i = 0;
- // tant que les cases sont vides la boucle continue et remplie les cases
+
    while(i < nblignes && cases[i][col] == 0) {
        i++;
    }
 	       
- // si la case est remplie on passe a une autre case   
+    
    var lig = i-1;
      if (joueur == 1) {
         joueur = 0;
@@ -67,16 +66,3 @@ function actualiserGrille(){
     }
    
 }
-
-
-
-function resultatcol (){
-	for (var i = 0; i < nbcolones.length; i++) {
-		if(joueur == 4){ 
-			console.log("gagner");
-
-
-		}
-	}
-        
-}        
