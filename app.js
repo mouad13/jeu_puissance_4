@@ -4,53 +4,55 @@ var cases =  [[0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0]];
+
 var nblignes = 6;
 var nbcolones = 7;
 var nbbouttons = 7;
-var grilles = document.getElementById("grilles");
-var cellules = document.getElementById("cases");
-var joueurUn = 1;
+var grilles = $("#grilles");
+var cellules = $("#cases");
+var joueur = 1;
+var joueur2 = 2;
 
-    for (var i = 0; i < nblignes; i++) {
+// creation des lignes, des colonnes et les boutons du tableux
 
-        for (var j = 0; j < nbcolones; j++) {
-            var divElement = document.createElement("div");
-            divElement.className = "tableau";
-            grilles.appendChild(divElement);
-            divElement.id = "case"+i+"-"+j;
-        }
-    }
-    for (var k = 0; k < nbbouttons; k++) {
-        var button = document.createElement("button");
-        cellules.appendChild(button);
-        button.className = "button";
-        button.id = k;
+for (var i = 0; i < nblignes; i++) {
 
-        button.addEventListener ("click", function() {
-           var col = this.id;
-           var i = 0;
-           while(i < 6 && cases[i][col] == 0) {
-               i++;
-           }
-           var lig = i-1;
-             if (joueurUn == 1) {
-                joueurUn = 0;
-                cases[lig][col] = 1;
-              }
-
-             else {
-                joueurUn = 1;
-                cases[lig][col] = 2;
-             }
-             actualiserGrille();
-         });
-    }
-
-function afficherGrille (){
-    for (var i = 0; i < cases.length; i++){
-        console.log(cases[i]);
+    for (var j = 0; j < nbcolones; j++) {
+        grilles.append('<div class="tableau" id="case'+i+'-'+j+'"></div>');  // on ajoute la div dans la grille 
     }
 }
+    // on ajoute des boutons
+    
+    for (var k = 0; k < nbbouttons; k++) {
+    	 cellules.append('<button class="button" id="'+k+'"></button>');
+
+
+    }
+       
+
+$("button").click(function() { 
+   var col = $(this).attr("id");	      
+   var i = 0;
+ // tant que les cases sont vides la boucle continue et remplie les cases
+   while(i < nblignes && cases[i][col] == 0) {
+       i++;
+   }
+	       
+ // si la case est remplie on passe a une autre case   
+   var lig = i-1;
+     if (joueur == 1) {
+        joueur = 0;
+        cases[lig][col] = 1;
+      }
+ // 
+     else {
+        joueur = 1;
+        cases[lig][col] = 2;
+     }
+     actualiserGrille();
+    
+ });
+
 
 function actualiserGrille(){
     for(var lig = 0; lig <  cases.length; lig++){
@@ -63,5 +65,18 @@ function actualiserGrille(){
             }
         }
     }
-
+   
 }
+
+
+
+function resultatcol (){
+	for (var i = 0; i < nbcolones.length; i++) {
+		if(joueur == 4){ 
+			console.log("gagner");
+
+
+		}
+	}
+        
+}        
